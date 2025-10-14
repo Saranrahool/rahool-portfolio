@@ -22,6 +22,7 @@ const Page = ({ children }: { children: React.ReactNode }) => (
 export default function App() {
   const location = useLocation();
   return (
+    <div className="bg-white text-black dark:bg-[#0d0d0d] dark:text-white min-h-screen transition-colors duration-300">
     <div>
       {/* NAV */}
       <header className="sticky top-0 z-20 backdrop-blur border-b border-white/10 bg-base/70">
@@ -53,6 +54,7 @@ export default function App() {
           © {new Date().getFullYear()} rahoolsaran.com
         </div>
       </footer>
+    </div>
     </div>
   );
 }
