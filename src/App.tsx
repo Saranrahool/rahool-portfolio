@@ -1,122 +1,56 @@
-import { useMemo } from "react";
+import { Routes, Route, NavLink, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
+import Resume from "./pages/Resume";
 
-const links = {
-  linkedin: "https://www.linkedin.com/in/rahool-saran",
-  github: "https://github.com/Saranrahool",
-  spotify:
-    "https://open.spotify.com/user/31zml33gegjfswl5eqmmi3bvsum4?si=30cf1c889c754313",
-  email: "mailto:contact@rahoolsaran.com",
-};
-
-type Project = { title: string; blurb: string; github?: string; live?: string };
-
-const projects: Project[] = [
-  {
-    title: "Godot 4 – Procedural Terrain",
-    blurb:
-      "GDScript + FastNoiseLite + SurfaceTool. Real-time heightmap tweak UI, export, perf profiling.",
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Jump-King-style Platformer (Processing)",
-    blurb:
-      "Charge-to-jump physics, parallax layers, modular level JSONs, clean OOP structure.",
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "UFV Bookstore Digital Transformation",
-    blurb:
-      "WBS, risk matrix, stakeholder register, budget & timeline visuals; led end-to-end PM docs.",
-  },
-  {
-    title: "Oral Health Worldwide — WordPress",
-    blurb:
-      "Multi-page site, accessible IA, donations CTA, SEO & lighthouse optimization.",
-    live: "#",
-  },
-];
+const Page = ({ children }: { children: React.ReactNode }) => (
+  <motion.main
+    initial={{ opacity: 0, x: 24 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -24 }}
+    transition={{ duration: 0.35, ease: "easeOut" }}
+    className="relative z-10 min-h-[calc(100vh-64px)]"
+  >
+    {children}
+  </motion.main>
+);
 
 export default function App() {
-  const year = useMemo(() => new Date().getFullYear(), []);
+  const location = useLocation();
   return (
-    <div className="page">
+    <div>
       {/* NAV */}
-      <header className="nav">
-        <a href="#" className="brand">Rahool Saran</a>
-        <nav className="navlinks">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+      <header className="sticky top-0 z-20 backdrop-blur border-b border-white/10 bg-base/70">
+        <nav className="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between">
+          <NavLink to="/" className="font-semibold">Rahool Saran</NavLink>
+          <div className="flex items-center gap-5 text-sm text-zinc-400">
+            <NavLink to="/about" className={({isActive})=>isActive?"text-white":"hover:text-white"}>About</NavLink>
+            <NavLink to="/projects" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Projects</NavLink>
+            <NavLink to="/resume" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Resume</NavLink>
+            <NavLink to="/contact" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Contact</NavLink>
+          </div>
         </nav>
       </header>
 
-      {/* HERO */}
-      <section className="hero">
-        <h1>Hey, I’m Rahool — I build secure, scalable systems.</h1>
-        <p className="tag">
-          “Running on curiosity, Wi-Fi, and late-night debugging.”
-        </p>
-        <div className="cta">
-          <a className="btn primary" href="#projects">View Work</a>
-          <a className="btn" href="#contact">Contact</a>
-        </div>
-        <div className="socials">
-          <a href={links.linkedin} target="_blank">LinkedIn</a>
-          <a href={links.github} target="_blank">GitHub</a>
-          <a href={links.spotify} target="_blank">Spotify</a>
-          <a href={links.email}>Email</a>
-        </div>
-      </section>
+      {/* PAGE TRANSITIONS */}
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Page><Home/></Page>} />
+          <Route path="/about" element={<Page><About/></Page>} />
+          <Route path="/projects" element={<Page><Projects/></Page>} />
+          <Route path="/contact" element={<Page><Contact/></Page>} />
+          <Route path="/resume" element={<Page><Resume/></Page>} />
+        </Routes>
+      </AnimatePresence>
 
-      {/* ABOUT */}
-      <section id="about" className="section">
-        <h2>About</h2>
-        <p className="muted">
-          CIS student @ UFV focused on practical IT support, sysadmin, and security.
-          I like reliable systems, simple designs, and clear documentation.
-          Currently open for IT Support / SysAdmin / Security co-op roles.
-        </p>
-        <ul className="chips">
-          {[
-            "Python","Java","PowerShell","SQL",
-            "Networking","Azure","Virtualization",
-            "GitHub","WordPress",
-          ].map(s => <li key={s}>{s}</li>)}
-        </ul>
-      </section>
-
-      {/* PROJECTS */}
-      <section id="projects" className="section">
-        <h2>Projects</h2>
-        <div className="grid">
-          {projects.map(p => (
-            <article key={p.title} className="card">
-              <h3>{p.title}</h3>
-              <p className="muted">{p.blurb}</p>
-              <div className="links">
-                {p.github && <a href={p.github} target="_blank">GitHub →</a>}
-                {p.live && <a href={p.live} target="_blank">Live ↗</a>}
-              </div>
-            </article>
-          ))}
+      <footer className="border-t border-white/10 py-8">
+        <div className="mx-auto max-w-6xl px-5 text-xs text-zinc-500">
+          © {new Date().getFullYear()} rahoolsaran.com
         </div>
-      </section>
-
-      {/* CONTACT */}
-      <section id="contact" className="section">
-        <h2>Let’s build something.</h2>
-        <p className="muted">
-          I’m open to IT Support, SysAdmin, and Security co-ops. Say hi — I reply fast.
-        </p>
-        <div className="cta">
-          <a className="btn primary" href={links.email}>Email Me</a>
-          <a className="btn" href={links.linkedin} target="_blank">LinkedIn</a>
-        </div>
-      </section>
-
-      <footer className="footer">© {year} rahoolsaran.com</footer>
+      </footer>
     </div>
   );
 }
