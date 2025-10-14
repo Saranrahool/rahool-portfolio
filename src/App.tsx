@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Resume from "./pages/Resume";
+import ThemeToggle from "./components/ThemeToggle";
 
 const Page = ({ children }: { children: React.ReactNode }) => (
   <motion.main
@@ -31,6 +32,7 @@ export default function App() {
             <NavLink to="/projects" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Projects</NavLink>
             <NavLink to="/resume" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Resume</NavLink>
             <NavLink to="/contact" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Contact</NavLink>
+            <ThemeToggle />
           </div>
         </nav>
       </header>
