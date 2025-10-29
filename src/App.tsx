@@ -6,6 +6,8 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Resume from "./pages/Resume";
 import ThemeToggle from "./components/ThemeToggle";
+import Blog from "./pages/Blog";
+import Post from "./pages/Post";
 
 const Page = ({ children }: { children: React.ReactNode }) => (
   <motion.main
@@ -33,6 +35,7 @@ export default function App() {
             <NavLink to="/projects" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Projects</NavLink>
             <NavLink to="/resume" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Resume</NavLink>
             <NavLink to="/contact" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Contact</NavLink>
+            <NavLink to="/blog" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Blog</NavLink>
             <ThemeToggle />
           </div>
         </nav>
@@ -46,6 +49,9 @@ export default function App() {
           <Route path="/projects" element={<Page><Projects/></Page>} />
           <Route path="/contact" element={<Page><Contact/></Page>} />
           <Route path="/resume" element={<Page><Resume/></Page>} />
+          <Route path="/blog" element={<Page><Blog/></Page>} /> 
+          <Route path="/blog/:slug" element={<Page><Post/></Page>} />
+
         </Routes>
       </AnimatePresence>
 

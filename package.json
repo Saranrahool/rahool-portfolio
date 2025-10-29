@@ -12,10 +12,12 @@
   "dependencies": {
     "@react-pdf/renderer": "^4.3.1",
     "framer-motion": "^12.23.24",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.545.0",
     "qrcode": "^1.5.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-markdown": "^10.1.0",
     "react-router-dom": "^7.9.4"
   },
   "devDependencies": {
