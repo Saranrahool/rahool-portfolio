@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+/* Prevent flash of unstyled content */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  
+  :root.dark {
+    color-scheme: dark;
+  }
+}
+
+/* Optional: Add smooth transitions for theme changes */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
