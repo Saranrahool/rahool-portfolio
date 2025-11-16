@@ -24,18 +24,59 @@ const Page = ({ children }: { children: React.ReactNode }) => (
 export default function App() {
   const location = useLocation();
   return (
-    <div className="bg-white text-black dark:bg-[#0d0d0d] dark:text-white min-h-screen transition-colors duration-300">
-    <div>
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-[#0d0d0d] dark:text-white transition-colors duration-300">
       {/* NAV */}
-      <header className="sticky top-0 z-20 backdrop-blur border-b border-white/10 bg-base/70">
+      <header className="sticky top-0 z-20 backdrop-blur border-b border-gray-200 dark:border-white/10 bg-white/70 dark:bg-[#0d0d0d]/70">
         <nav className="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between">
-          <NavLink to="/" className="font-semibold">Rahool Saran</NavLink>
-          <div className="flex items-center gap-5 text-sm text-zinc-400">
-            <NavLink to="/about" className={({isActive})=>isActive?"text-white":"hover:text-white"}>About</NavLink>
-            <NavLink to="/projects" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Projects</NavLink>
-            <NavLink to="/resume" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Resume</NavLink>
-            <NavLink to="/contact" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Contact</NavLink>
-            <NavLink to="/blog" className={({isActive})=>isActive?"text-white":"hover:text-white"}>Blog</NavLink>
+          <NavLink to="/" className="font-semibold text-gray-900 dark:text-white">
+            Rahool Saran
+          </NavLink>
+          <div className="flex items-center gap-5 text-sm text-gray-600 dark:text-zinc-400">
+            <NavLink 
+              to="/about" 
+              className={({isActive})=>isActive
+                ? "text-gray-900 dark:text-white font-medium"
+                : "hover:text-gray-900 dark:hover:text-white"
+              }
+            >
+              About
+            </NavLink>
+            <NavLink 
+              to="/projects" 
+              className={({isActive})=>isActive
+                ? "text-gray-900 dark:text-white font-medium"
+                : "hover:text-gray-900 dark:hover:text-white"
+              }
+            >
+              Projects
+            </NavLink>
+            <NavLink 
+              to="/resume" 
+              className={({isActive})=>isActive
+                ? "text-gray-900 dark:text-white font-medium"
+                : "hover:text-gray-900 dark:hover:text-white"
+              }
+            >
+              Resume
+            </NavLink>
+            <NavLink 
+              to="/contact" 
+              className={({isActive})=>isActive
+                ? "text-gray-900 dark:text-white font-medium"
+                : "hover:text-gray-900 dark:hover:text-white"
+              }
+            >
+              Contact
+            </NavLink>
+            <NavLink 
+              to="/blog" 
+              className={({isActive})=>isActive
+                ? "text-gray-900 dark:text-white font-medium"
+                : "hover:text-gray-900 dark:hover:text-white"
+              }
+            >
+              Blog
+            </NavLink>
             <ThemeToggle />
           </div>
         </nav>
@@ -51,16 +92,14 @@ export default function App() {
           <Route path="/resume" element={<Page><Resume/></Page>} />
           <Route path="/blog" element={<Page><Blog/></Page>} /> 
           <Route path="/blog/:slug" element={<Page><Post/></Page>} />
-
         </Routes>
       </AnimatePresence>
 
-      <footer className="border-t border-white/10 py-8">
-        <div className="mx-auto max-w-6xl px-5 text-xs text-zinc-500">
+      <footer className="border-t border-gray-200 dark:border-white/10 py-8">
+        <div className="mx-auto max-w-6xl px-5 text-xs text-gray-500 dark:text-zinc-500">
           © {new Date().getFullYear()} rahoolsaran.com
         </div>
       </footer>
-    </div>
     </div>
   );
 }

@@ -2,9 +2,8 @@ import matter from "gray-matter";
 
 // Import all markdown files from the posts directory
 const modules = import.meta.glob<string>("../posts/*.md", {
-  query: "?raw",
-  import: "default",
   eager: true,
+  as: "raw",
 });
 
 export function getAllPosts() {
