@@ -18,14 +18,14 @@ export default function Resume() {
 
       <div className="mt-8 flex flex-col items-center gap-6">
         <iframe
-          src="/Rahool_s_Resume_1.2.pdf"
+          src="/Rahool_Saran_IT_Resume.pdf"
           className="w-full h-[800px] border border-white/10 rounded-xl"
           title="Rahool Saran Resume"
         ></iframe>
 
         <a
-          href="/Rahool_s_Resume_1.2.pdf"
-          download="Rahool_Saran_Resume.pdf"
+          href="/Rahool_Saran_IT_Resume.pdf"
+          download="Rahool_Saran_IT_Resume.pdf"
           className="px-6 py-2 bg-white text-black rounded-full font-medium hover:scale-105 transition"
         >
           📄 Download Resume
