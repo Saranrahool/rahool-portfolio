@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Routes, Route, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./pages/Home";
@@ -8,6 +9,7 @@ import Resume from "./pages/Resume";
 import ThemeToggle from "./components/ThemeToggle";
 import Blog from "./pages/Blog";
 import Post from "./pages/Post";
+import Loader from "./components/Loader";
 
 const Page = ({ children }: { children: React.ReactNode }) => (
   <motion.main
@@ -22,84 +24,97 @@ const Page = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
   const location = useLocation();
-  return (
-    <div className="min-h-screen bg-white text-gray-900 dark:bg-[#0d0d0d] dark:text-white transition-colors duration-300">
-      {/* NAV */}
-      <header className="sticky top-0 z-20 backdrop-blur border-b border-gray-200 dark:border-white/10 bg-white/70 dark:bg-[#0d0d0d]/70">
-        <nav className="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between">
-          <NavLink to="/" className="font-semibold text-gray-900 dark:text-white">
-            Rahool Saran
-          </NavLink>
-          <div className="flex items-center gap-5 text-sm text-gray-600 dark:text-zinc-400">
-            <NavLink 
-              to="/about" 
-              className={({isActive})=>isActive
-                ? "text-gray-900 dark:text-white font-medium"
-                : "hover:text-gray-900 dark:hover:text-white"
-              }
-            >
-              About
-            </NavLink>
-            <NavLink 
-              to="/projects" 
-              className={({isActive})=>isActive
-                ? "text-gray-900 dark:text-white font-medium"
-                : "hover:text-gray-900 dark:hover:text-white"
-              }
-            >
-              Projects
-            </NavLink>
-            <NavLink 
-              to="/resume" 
-              className={({isActive})=>isActive
-                ? "text-gray-900 dark:text-white font-medium"
-                : "hover:text-gray-900 dark:hover:text-white"
-              }
-            >
-              Resume
-            </NavLink>
-            <NavLink 
-              to="/contact" 
-              className={({isActive})=>isActive
-                ? "text-gray-900 dark:text-white font-medium"
-                : "hover:text-gray-900 dark:hover:text-white"
-              }
-            >
-              Contact
-            </NavLink>
-            <NavLink 
-              to="/blog" 
-              className={({isActive})=>isActive
-                ? "text-gray-900 dark:text-white font-medium"
-                : "hover:text-gray-900 dark:hover:text-white"
-              }
-            >
-              Blog
-            </NavLink>
-            <ThemeToggle />
-          </div>
-        </nav>
-      </header>
 
-      {/* PAGE TRANSITIONS */}
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Page><Home/></Page>} />
-          <Route path="/about" element={<Page><About/></Page>} />
-          <Route path="/projects" element={<Page><Projects/></Page>} />
-          <Route path="/contact" element={<Page><Contact/></Page>} />
-          <Route path="/resume" element={<Page><Resume/></Page>} />
-          <Route path="/blog" element={<Page><Blog/></Page>} /> 
-          <Route path="/blog/:slug" element={<Page><Post/></Page>} />
-        </Routes>
+  return (
+    <>
+      <AnimatePresence>
+        {loading && <Loader key="loader" onDone={() => setLoading(false)} />}
       </AnimatePresence>
 
-      <footer className="border-t border-gray-200 dark:border-white/10 py-8">
-        <div className="mx-auto max-w-6xl px-5 text-xs text-gray-500 dark:text-zinc-500">
-          © {new Date().getFullYear()} rahoolsaran.com
-        </div>
-      </footer>
-    </div>
+      <div className="min-h-screen bg-white text-gray-900 dark:bg-[#0d0d0d] dark:text-white transition-colors duration-300">
+        {/* NAV */}
+        <header className="sticky top-0 z-20 backdrop-blur border-b border-gray-200 dark:border-white/10 bg-white/70 dark:bg-[#0d0d0d]/70">
+          <nav className="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between">
+            <NavLink to="/" className="font-semibold text-gray-900 dark:text-white">
+              Rahool Saran
+            </NavLink>
+            <div className="flex items-center gap-5 text-sm text-gray-600 dark:text-zinc-400">
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-gray-900 dark:text-white font-medium"
+                    : "hover:text-gray-900 dark:hover:text-white"
+                }
+              >
+                About
+              </NavLink>
+              <NavLink
+                to="/projects"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-gray-900 dark:text-white font-medium"
+                    : "hover:text-gray-900 dark:hover:text-white"
+                }
+              >
+                Projects
+              </NavLink>
+              <NavLink
+                to="/resume"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-gray-900 dark:text-white font-medium"
+                    : "hover:text-gray-900 dark:hover:text-white"
+                }
+              >
+                Resume
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-gray-900 dark:text-white font-medium"
+                    : "hover:text-gray-900 dark:hover:text-white"
+                }
+              >
+                Contact
+              </NavLink>
+              <NavLink
+                to="/blog"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-gray-900 dark:text-white font-medium"
+                    : "hover:text-gray-900 dark:hover:text-white"
+                }
+              >
+                Blog
+              </NavLink>
+              <ThemeToggle />
+            </div>
+          </nav>
+        </header>
+
+        {/* PAGE TRANSITIONS */}
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Page><Home /></Page>} />
+            <Route path="/about" element={<Page><About /></Page>} />
+            <Route path="/projects" element={<Page><Projects /></Page>} />
+            <Route path="/contact" element={<Page><Contact /></Page>} />
+            <Route path="/resume" element={<Page><Resume /></Page>} />
+            <Route path="/blog" element={<Page><Blog /></Page>} />
+            <Route path="/blog/:slug" element={<Page><Post /></Page>} />
+          </Routes>
+        </AnimatePresence>
+
+        <footer className="border-t border-gray-200 dark:border-white/10 py-8">
+          <div className="mx-auto max-w-6xl px-5 text-xs text-gray-500 dark:text-zinc-500">
+            © {new Date().getFullYear()} rahoolsaran.com
+          </div>
+        </footer>
+      </div>
+    </>
   );
 }
