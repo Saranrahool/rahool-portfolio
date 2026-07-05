@@ -60,24 +60,23 @@ export default function About() {
       <motion.div variants={item}>
         <h2 className="text-4xl font-bold text-gray-900 dark:text-white">About Me</h2>
         <p className="mt-4 text-gray-600 dark:text-zinc-400 leading-relaxed max-w-3xl text-lg">
-          I'm a graduating Computer Information Systems student at the{" "}
+          I'm an{" "}
           <span className="text-gray-900 dark:text-white font-medium">
-            University of the Fraser Valley
-          </span>{" "}
-          (April 2026), with hands-on experience in IT support, system
-          administration, endpoint management, and infrastructure
-          troubleshooting.
+            IT Coordinator based in Vancouver, BC
+          </span>
+          , and a Computer Information Systems graduate (Security concentration) from the
+          University of the Fraser Valley (April 2026), with hands-on experience in IT support,
+          system administration, endpoint management, and infrastructure troubleshooting.
         </p>
         <p className="mt-3 text-gray-600 dark:text-zinc-400 leading-relaxed max-w-3xl">
-          I've supported users and systems across nonprofit, academic, retail,
-          and broadcast environments — using tools like Microsoft 365, Azure
-          Active Directory, Intune, Sophos, and Linux. My background spans
-          technical troubleshooting, device deployment, networking, and
-          documentation, with a growing focus on cybersecurity and
-          infrastructure operations.
+          I've supported users and systems across enterprise, nonprofit, academic, retail, and
+          broadcast environments — using tools like Microsoft 365, Azure Active Directory, Intune,
+          Sophos, and Linux. My background spans technical troubleshooting, device deployment,
+          networking, and documentation, with a growing focus on cybersecurity and infrastructure
+          operations.
         </p>
         <p className="mt-2 text-cyan-600 dark:text-cyan-400 font-medium">
-          📍 Abbotsford, BC · Available for full-time IT roles starting Summer 2026
+          📍 Abbotsford, BC · IT Coordinator, Vancouver
         </p>
       </motion.div>
 
@@ -140,10 +139,10 @@ export default function About() {
             University of the Fraser Valley
           </p>
           <p className="text-gray-600 dark:text-zinc-400 text-sm mt-1">
-            Bachelor of Computer Information Systems · Abbotsford, BC
+            Bachelor of Computer Information Systems, Security Concentration · Abbotsford, BC
           </p>
           <p className="text-cyan-600 dark:text-cyan-400 text-sm mt-1 font-medium">
-            Graduating April 2026
+            Graduated April 2026
           </p>
         </div>
       </motion.div>

@@ -58,28 +58,39 @@ const projects: Project[] = [
 
 const experience = [
   {
+    title: "IT Coordinator",
+    org: "Microsoft",
+    range: "July 2026 – Present",
+    tags: ["Asset Management", "Onboarding/Offboarding", "Procurement", "IT Operations"],
+    points: [
+      "Support IT operations for Microsoft's Vancouver office, spanning asset management, procurement, and logistics.",
+      "Coordinate onboarding and offboarding workflows for employees and equipment.",
+      "Document and standardize recurring IT processes to improve consistency and handoff quality.",
+    ],
+  },
+  {
     title: "IT Support Analyst (Practicum)",
     org: "Archway Community Services",
-    range: "2026 – Present",
+    range: "Jan 2026 – Jun 2026",
     tags: ["Microsoft 365", "Azure AD", "Intune", "Sophos", "Windows", "Networking"],
     points: [
-      "Tier 1–2 IT support across a multi-site nonprofit environment — hardware, software, and connectivity.",
-      "Configure and deploy workstations using Microsoft 365, Azure Active Directory, and Intune.",
-      "Manage endpoint security and compliance using Sophos endpoint protection.",
-      "Onboard systems to domain; configure user accounts, permissions, and device policies.",
-      "Support users with Outlook, Teams, OneDrive, and SharePoint.",
+      "Provided Tier 1–2 IT support across a multi-site nonprofit environment — hardware, software, and connectivity.",
+      "Configured and deployed workstations using Microsoft 365, Azure Active Directory, and Intune.",
+      "Managed endpoint security and compliance using Sophos endpoint protection.",
+      "Onboarded systems to domain; configured user accounts, permissions, and device policies.",
+      "Supported users with Outlook, Teams, OneDrive, and SharePoint.",
     ],
   },
   {
     title: "IT Support Technician (Geek Squad)",
     org: "Best Buy Canada",
-    range: "Oct 2025 – Dec 2025, Feb 2026 – Present",
+    range: "Oct 2025 – Dec 2025, Feb 2026 – Jun 2026",
     tags: ["Windows", "macOS", "Hardware", "Malware Removal", "Customer Support"],
     points: [
-      "Diagnose hardware, OS, and software issues across Windows and macOS systems.",
-      "Perform malware removal, OS troubleshooting, and device configuration.",
-      "Data transfer, device setup, and technical troubleshooting for customer systems.",
-      "Follow structured repair workflows and documentation in a high-volume environment.",
+      "Diagnosed hardware, OS, and software issues across Windows and macOS systems.",
+      "Performed malware removal, OS troubleshooting, and device configuration.",
+      "Handled data transfer, device setup, and technical troubleshooting for customer systems.",
+      "Followed structured repair workflows and documentation in a high-volume environment.",
     ],
   },
   {
@@ -97,12 +108,12 @@ const experience = [
   {
     title: "Student Lab Monitor",
     org: "School of Computing, UFV",
-    range: "2025 – Present",
+    range: "2025 – 2026",
     tags: ["IT Support", "Academic", "Linux", "Windows"],
     points: [
       "Technical support during computing labs and examinations for CIS and COMP courses.",
-      "Assist students and instructors with software installation, permissions, and troubleshooting.",
-      "Maintain smooth lab operations by resolving hardware and access-related issues quickly.",
+      "Assisted students and instructors with software installation, permissions, and troubleshooting.",
+      "Maintained smooth lab operations by resolving hardware and access-related issues quickly.",
     ],
   },
   {
@@ -186,7 +197,7 @@ export default function Projects() {
       <motion.div variants={item} className="mt-16">
         <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Experience</h2>
         <p className="mt-2 text-gray-500 dark:text-zinc-400">
-          Real-world IT roles across nonprofit, retail, broadcast, and academic environments.
+          Real-world IT roles across enterprise, nonprofit, retail, broadcast, and academic environments.
         </p>
       </motion.div>
 

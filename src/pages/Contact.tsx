@@ -54,11 +54,11 @@ export default function Contact() {
           Let's Connect
         </h2>
         <p className="mt-3 text-gray-500 dark:text-zinc-400 text-lg max-w-xl mx-auto">
-          I'm open to IT Support, System Administration, and Cybersecurity roles
-          starting Summer 2026. Feel free to reach out!
+          I'm an IT Coordinator based in Vancouver, always happy to connect with folks in IT,
+          systems administration, and cybersecurity. Feel free to reach out!
         </p>
         <div className="mt-2 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-700/40 text-cyan-700 dark:text-cyan-400 text-sm">
-          📍 Abbotsford, BC · Available Summer 2026
+          📍 Abbotsford, BC · IT Coordinator, Vancouver
         </div>
       </motion.div>
 
