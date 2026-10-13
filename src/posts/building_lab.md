@@ -63,6 +63,14 @@ I also spun up a Linux server monitoring stack to track:
 > Every IT support engineer should have their own playground.
 > That's where curiosity becomes capability.
 
+## Security Hardware: Flipper Zero
+
+Alongside the lab, I've used a **Flipper Zero** to get hands-on with the physical side of security, testing only my own devices:
+
+- Reading and analyzing **RFID/NFC** badges and tags to understand how access-control credentials work
+- Exploring **sub-GHz radio** and **infrared** signals used by everyday devices
+- Seeing first-hand why weak or legacy access-control systems are vulnerable, and what secure deployments do differently
+
 ## What's Next?
 
 I'm planning to add:
