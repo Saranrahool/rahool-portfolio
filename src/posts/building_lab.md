@@ -48,7 +48,9 @@ After getting comfortable with local infrastructure, I extended the lab to the c
 - Applied security policies, compliance rules, and app deployments
 - Documented the full device lifecycle: enrollment → configuration → policy enforcement
 
-This mirrors exactly what I now do at my practicum at **Archway Community Services** — so the lab prep paid off immediately.
+This mirrored what I went on to do during my practicum at **Archway Community Services**, so the lab prep paid off immediately.
+
+> **Update (October 2026):** Since writing this, I've done this work in production. As an IT Coordinator at Microsoft's Vancouver office, I handled Intune device management and onboarding/offboarding for a real enterprise environment. This lab is where it started.
 
 ## Monitoring
 
